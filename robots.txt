@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://smithinballakile.github.io/i-game-home-com-cn-2/sitemap.xml

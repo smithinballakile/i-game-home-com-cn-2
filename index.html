@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>爱游戏 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1a2e3b;
+            line-height: 1.6;
+            padding: 1.25rem;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 主视觉 —— 网格背景 + 蓝绿点缀 */
+        .hero {
+            background: linear-gradient(145deg, #d9f0f5 0%, #b7e0e8 100%);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 20px rgba(10, 80, 90, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(35, 130, 130, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(35, 130, 130, 0.08) 1px, transparent 1px);
+            background-size: 2rem 2rem;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.1rem, 6vw, 3.4rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0f4a55;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            max-width: 600px;
+            margin: 0.8rem auto 1.5rem;
+            color: #1c4f5a;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(25, 115, 120, 0.15);
+            backdrop-filter: blur(2px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #0b4a52;
+            border: 1px solid #70b4bc;
+        }
+
+        /* 卡片网格 —— 信息卡片式布局 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.6rem;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 6px 18px rgba(0, 40, 45, 0.05);
+            border: 1px solid #e0eff2;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(10, 80, 90, 0.08);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.7rem;
+            display: inline-block;
+            background: #d6edf2;
+            width: 2.8rem;
+            height: 2.8rem;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #146d79;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f4a55;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2b4e58;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .card ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #2f9aa8;
+        }
+
+        /* 适合人群 + 自然链接段落 */
+        .audience-section {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .audience-card {
+            background: white;
+            border-radius: 1.6rem;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #dce8ec;
+        }
+
+        .audience-card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0f4a55;
+            margin-bottom: 1rem;
+            border-left: 4px solid #2f9aa8;
+            padding-left: 0.7rem;
+        }
+
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.7rem;
+        }
+
+        .audience-tag {
+            background: #e0f0f4;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #115a66;
+        }
+
+        .link-note {
+            background: white;
+            border-radius: 1.6rem;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #dce8ec;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .link-note p {
+            margin-bottom: 0.8rem;
+            color: #1c3c44;
+        }
+
+        .link-note a {
+            color: #0b7e8c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #9ad0da;
+            transition: border-color 0.2s;
+        }
+
+        .link-note a:hover {
+            border-bottom-color: #0b7e8c;
+        }
+
+        .faq-mini {
+            background: #e7f3f7;
+            border-radius: 1.6rem;
+            padding: 1.5rem 1.5rem 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0f4a55;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.7rem;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            color: #115662;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-answer {
+            font-size: 0.92rem;
+            color: #2c5a65;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5c8590;
+            padding: 1.5rem 0 0.8rem;
+            border-top: 1px solid #cde0e5;
+        }
+
+        /* 响应式细节：移动端堆叠 */
+        @media (max-width: 700px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .audience-section {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem;
+                border-radius: 1.5rem;
+            }
+
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .audience-card, .link-note {
+                padding: 1.3rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 440px) {
+            body {
+                padding: 0.8rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 主视觉 -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>爱游戏 · 稳定入口</h1>
+            <p>日常浏览、查攻略、看资讯，一个干净好记的起点。页面说明清晰，无需反复寻找。</p>
+            <span class="hero-tag">🌿 轻量 · 直达</span>
+        </div>
+    </header>
+
+    <!-- 用途卡片网格 -->
+    <div class="card-grid">
+        <div class="card">
+            <span class="card-icon">📰</span>
+            <h3>资讯动态</h3>
+            <p>聚合通用游戏信息，更新频率适中。适合快速浏览近期内容，不必淹没在海量推送中。</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">🧭</span>
+            <h3>导航与指引</h3>
+            <p>页面结构清晰，常用模块一目了然。减少点击层级，让寻找信息更自然顺手。</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">📌</span>
+            <h3>常设入口</h3>
+            <p>保持长期稳定的访问地址，不随意变动。对于习惯固定路径的用户来说，更加省心。</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">🔄</span>
+            <h3>适配多端</h3>
+            <p>兼顾桌面与移动设备，排版自动调整。日常手机浏览也能获得舒适的阅读体验。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 + 自然链接段落 -->
+    <div class="audience-section">
+        <div class="audience-card">
+            <h2>适合人群</h2>
+            <div class="audience-tags">
+                <span class="audience-tag">轻度玩家</span>
+                <span class="audience-tag">资讯阅读者</span>
+                <span class="audience-tag">怀旧爱好者</span>
+                <span class="audience-tag">习惯固定入口的人</span>
+                <span class="audience-tag">想减少信息噪音的用户</span>
+            </div>
+        </div>
+        <div class="link-note">
+            <p>如果你需要一个长期稳定、不绕弯子的网页入口，可以试试将 <a href="https://i-game-home.com.cn">爱游戏</a> 加入书签。页面本身不堆砌弹窗，内容按板块组织，方便每天随手打开看一眼。</p>
+            <p style="margin-bottom: 0;">无论是等公交时刷刷近期内容，还是回家后用电脑慢慢翻阅，都不需要反复适应布局。简洁、直接，就是它想传递的感觉。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 + 提示 -->
+    <div class="faq-mini">
+        <h2>常见疑问 · 摘要</h2>
+        <div class="faq-item">
+            <div class="faq-question">🟡 页面主要提供什么？</div>
+            <div class="faq-answer">聚合性的游戏相关内容、资讯及导航，保持稳定更新。适合作为日常信息入口之一。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">🟡 移动端体验如何？</div>
+            <div class="faq-answer">采用自适应网格卡片，触控友好。无需缩放即可阅读，加载速度也较快。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">🟡 入口会不会经常变？</div>
+            <div class="faq-answer">域名长期使用，结构保持稳定。你可以放心保存，不需要频繁更换书签。</div>
+        </div>
+        <div style="margin-top: 0.8rem; font-size: 0.9rem; color: #2b6e7a;background: #ddeef3; padding: 0.5rem 1rem; border-radius: 40px; display: inline-block;">
+            💡 提示：页面内容偏向综合介绍，具体深度信息可自行探索。
+        </div>
+    </div>
+
+    <footer class="footer-note">
+        <div>爱游戏 · 页面说明 · 稳定入口</div>
+        <div style="margin-top: 0.3rem; opacity: 0.7;">保持直接，不绕路</div>
+    </footer>
+
+</div>
+</body>
+</html>

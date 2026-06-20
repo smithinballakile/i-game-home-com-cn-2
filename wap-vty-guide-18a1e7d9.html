@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes">
+  <title>V体育 · 赛事资讯与知识平台</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f4f9fc;
+      color: #1f2e3a;
+      line-height: 1.6;
+      padding: 20px 16px 40px;
+    }
+
+    .wrap {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(135deg, #0d3747 0%, #1d5c6e 100%);
+      border-radius: 32px;
+      padding: 40px 28px 36px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(8, 60, 80, 0.20);
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: #50b8c8;
+      padding: 0 10px;
+      border-radius: 40px;
+      color: #0a2d38;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 16px auto 0;
+      opacity: 0.92;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(2px);
+      padding: 6px 18px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      margin-top: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* 卡片通用 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 28px 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 24px 22px;
+      box-shadow: 0 4px 12px rgba(0, 30, 40, 0.05);
+      border: 1px solid #deeef2;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(12, 80, 100, 0.08);
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: #0b4556;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h2 i {
+      font-style: normal;
+      background: #b1e0ea;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 0.9rem;
+      color: #074251;
+    }
+
+    .card p {
+      font-size: 0.97rem;
+      color: #2b3f4b;
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 8px;
+    }
+
+    .card ul li {
+      padding: 6px 0 6px 24px;
+      position: relative;
+      font-size: 0.95rem;
+      border-bottom: 1px dashed #e3f0f4;
+    }
+
+    .card ul li:last-child {
+      border-bottom: 0;
+    }
+
+    .card ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 2px;
+      color: #289fb3;
+      font-weight: bold;
+    }
+
+    .tag {
+      background: #d9eef5;
+      color: #074c5e;
+      padding: 2px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    /* 说明区——双列网格 */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 18px 0 24px;
+    }
+
+    .grid-2col .card {
+      padding: 18px 16px;
+    }
+
+    .grid-2col .card h3 {
+      font-size: 1rem;
+      color: #0b4c5e;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .grid-2col .card p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* 内联链接样式 */
+    a {
+      color: #1b7f94;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #1b7f94;
+    }
+
+    .faq-item {
+      padding: 12px 0 10px;
+      border-bottom: 1px solid #e6f0f4;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #0b3e4c;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .faq-a {
+      color: #3c555f;
+      font-size: 0.93rem;
+    }
+
+    .bottom-links {
+      margin-top: 34px;
+      text-align: center;
+      padding: 24px 0 8px;
+      border-top: 1px solid #d0e3ea;
+      font-size: 0.9rem;
+      color: #3c5c66;
+    }
+
+    .bottom-links a {
+      margin: 0 8px;
+    }
+
+    .footnote {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: #5d7b85;
+    }
+
+    /* 响应式 */
+    @media (max-width: 540px) {
+      body {
+        padding: 12px 10px 30px;
+      }
+      .hero {
+        padding: 32px 18px 28px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .card {
+        padding: 18px 16px;
+      }
+      .bottom-links {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (min-width: 800px) {
+      .hero {
+        padding: 52px 40px 44px;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- hero 区 -->
+  <header class="hero">
+    <h1>⚡ <em>V</em>体育</h1>
+    <p>赛事信息聚合 · 数据对照 · 延伸阅读<br>为日常查询与知识积累提供简洁入口。</p>
+    <span class="badge">📋 球类 · 电竞赛事 · 综合体育</span>
+  </header>
+
+  <!-- 优势区：从日常查询与对照角度 -->
+  <div class="card-grid">
+    <div class="card">
+      <h2><i>1</i> 多维度信息对照</h2>
+      <p>比赛数据、队伍状态、历史交锋……<a href="https://wap-vty.com">V体育</a> 将常见查询项整理为对照列表，方便快速横向比较。不需要反复切换页面，减少信息遗漏。</p>
+      <ul>
+        <li><span class="tag">近期战绩</span>近5场胜负走势、得分区间</li>
+        <li><span class="tag">选手/队伍</span>核心数据与赛季平均对照</li>
+        <li><span class="tag">赛程参考</span>未来一周重点场次时间轴</li>
+      </ul>
+    </div>
+
+    <!-- 说明区：延伸阅读 用网格卡片 -->
+    <div class="card">
+      <h2><i>2</i> 延伸阅读 & 知识补充</h2>
+      <p>每项赛事页面都附带背景摘要——规则变动、历史纪录、赛季看点。适合赛前了解背景，赛后复盘时交叉印证。</p>
+      <div class="grid-2col">
+        <div class="card">
+          <h3>📘 规则速览</h3>
+          <p>五大联赛、杯赛、电竞赛制要点，一句话提炼差异。</p>
+        </div>
+        <div class="card">
+          <h3>📊 数据辞典</h3>
+          <p>常见统计指标说明（如控球率、战术评分、KDA 等），方便新手查阅。</p>
+        </div>
+        <div class="card">
+          <h3>📅 赛季时间线</h3>
+          <p>主要赛事阶段、转会窗、休赛期一目了然。</p>
+        </div>
+        <div class="card">
+          <h3>🧠 观察角度</h3>
+          <p>从阵容深度、客场表现等维度切入，提供不同于常规的对比思路。</p>
+        </div>
+      </div>
+      <p style="font-size:0.92rem; margin-top:4px;">许多内容基于公开赛事数据整理，<a href="https://wap-vty.com">V体育</a> 作为索引平台，助你更快定位需要的信息。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要区（说明 + 常见疑问） -->
+  <div class="card">
+    <h2><i>?</i> 常见疑问摘要</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q：平台数据来源可靠吗？</span>
+      <div class="faq-a">主要引用赛会官方统计与主流数据机构公开信息，并注明参考时间。建议结合多源交叉验证。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q：能否直接查看历史对阵记录？</span>
+      <div class="faq-a">多数队伍/选手页面下收录了近期交手记录（近5~10场），并提供净胜分、大小分等汇总。更早记录建议查阅赛事官网。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q：“延伸阅读”板块更新频率？</span>
+      <div class="faq-a">每个赛季中期及重大规则调整后会更新对应背景页；常规赛事数据每日同步。你可以关注特定赛事标签获取推送。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q：移动端浏览体验如何？</span>
+      <div class="faq-a">页面采用自适应布局，卡片可横向滑动查看对照表，也支持横屏模式。日常手机查询无碍。</div>
+    </div>
+    <p style="margin-top: 14px; font-size:0.92rem;">更多具体问题，可在对应内容页底部找到补充说明。也可直接使用 <a href="https://wap-vty.com">V体育</a> 搜索功能快速定位。</p>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="bottom-links">
+    <div>
+      <a href="https://wap-vty.com">V体育</a> · 
+      <a href="https://wap-vty.com" style="border-bottom:1px dotted #8bb7c4;">V体育</a> · 
+      <a href="https://wap-vty.com">V体育</a>
+    </div>
+    <div class="footnote">
+      本页仅为信息索引介绍 · 内容仅供学习参考
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

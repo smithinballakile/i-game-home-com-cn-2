@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>JRS直播 · 简明指南与访阅提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+      background-color: #f9f6f0;
+      color: #2d2a24;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background-color: #fefcf8;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+    }
+
+    .hero {
+      background: #eae3d6;
+      padding: 3rem 2rem 2.5rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid #d6cebf;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #3b352b;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #706754;
+      font-style: italic;
+      border-top: 1px solid #d0c5b0;
+      display: inline-block;
+      padding-top: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .inset {
+      padding: 2.2rem 2rem;
+    }
+
+    .inset h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #4d4436;
+      margin: 2.2rem 0 1rem 0;
+      border-left: 4px solid #b8aa92;
+      padding-left: 1rem;
+    }
+
+    .inset h2:first-of-type {
+      margin-top: 0.2rem;
+    }
+
+    .inset p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    .blockquote-note {
+      background: #f4efe6;
+      border-left: 6px solid #c7b69b;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 8px 2px 2px 8px;
+      font-size: 1rem;
+      color: #3f3930;
+    }
+
+    .blockquote-note strong {
+      color: #5f513e;
+    }
+
+    .faq-mini {
+      background: #f2ede3;
+      border-radius: 16px;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0 1.2rem 0;
+    }
+
+    .faq-mini dt {
+      font-weight: 600;
+      margin-top: 1rem;
+      color: #4b4133;
+      border-bottom: 1px dashed #d6cbbe;
+      padding-bottom: 0.3rem;
+    }
+
+    .faq-mini dt:first-child {
+      margin-top: 0;
+    }
+
+    .faq-mini dd {
+      margin: 0.4rem 0 1rem 1rem;
+      color: #3f3a32;
+      font-size: 0.98rem;
+    }
+
+    .visit-reminder {
+      background: #e6ddcf;
+      padding: 1.6rem 2rem;
+      margin: 2rem 0 0.5rem 0;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .visit-reminder p {
+      margin-bottom: 0.4rem;
+    }
+
+    .visit-reminder a {
+      color: #3d3427;
+      background: transparent;
+      text-decoration: none;
+      border-bottom: 2px solid #8f7d61;
+      font-weight: 500;
+      padding: 0 0.15rem;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .visit-reminder a:hover {
+      color: #16130e;
+      border-bottom-color: #3b2f1e;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8a7e6b;
+      padding: 1.8rem 1rem 1.2rem 1rem;
+      border-top: 1px solid #ddcfbe;
+      margin-top: 1.2rem;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-note span {
+      display: inline-block;
+      padding: 0 0.3rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 2rem 1.2rem 1.8rem 1.2rem;
+      }
+      .inset {
+        padding: 1.8rem 1.2rem;
+      }
+      .blockquote-note {
+        padding: 1rem 1.2rem;
+      }
+      .faq-mini {
+        padding: 1.2rem 1.2rem;
+      }
+      .visit-reminder {
+        padding: 1.2rem 1rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .inset h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 首页横幅 -->
+  <div class="hero">
+    <h1>JRS直播</h1>
+    <div class="sub">清晰起点 · 日常观赛指引</div>
+  </div>
+
+  <!-- 三段自然介绍 + 提示 -->
+  <div class="inset">
+
+    <h2>从一次简明的访问开始</h2>
+    <p>
+      当你在浏览器里寻找流畅的体育直播，<a href="https://en-jrs.com">JRS直播</a> 是许多朋友会反复用到的名称。它不像某些平台需要反复注册或下载专用软件，而是更接近一种“打开即看”的轻量方式。对于刚接触的人来说，第一印象往往决定后续的使用习惯——从网址栏输入正确的地址，到页面加载后迅速找到目标赛事，这些细节看似平常，却直接影响着观赛效率。
+    </p>
+    <p>
+      过去几年里，<a href="https://en-jrs.com">JRS直播</a> 的界面和链接结构经历了几次调整，但核心逻辑保持稳定：以聚合赛事信息为主，让用户能在一个页面内看到多场进行中的比赛。这种设计很适合同时关注多联赛的体育迷，不用反复切换标签页。
+    </p>
+
+    <h2>适应与提醒</h2>
+    <p>
+      由于网络环境的差异，有时候一个网站可能在不同地区、不同运营商下表现不同。<a href="https://en-jrs.com">JRS直播</a> 的页面加载速度、信号源稳定性也会受这些因素影响。一个值得留意的小习惯是：如果在主页看到多个信号源选项，可以尝试切换，通常能获得更流畅的播放体验。另外，部分浏览器会拦截自动弹窗或非标准播放器，建议将网站加入白名单或使用兼容性更好的浏览器。
+    </p>
+
+    <!-- 引用提示块 -->
+    <div class="blockquote-note">
+      <strong>📌 访问前的小备忘</strong><br>
+      如果页面长时间未加载，可尝试刷新一次或稍后重试。网站本身不存储用户数据，也无需登录。注意核对域名（en‑jrs.com），避免拼写近似站造成混淆。
+    </div>
+
+    <h2>日常场景与使用节奏</h2>
+    <p>
+      很多人在周末早晨打开 <a href="https://en-jrs.com">JRS直播</a>，一边准备早餐一边看欧洲联赛的回放或实时集锦。也有用户习惯在晚间赛事密集时段，用平板或手机快速查看比分与直播。直播流的清晰度会随网络波动变化，但整体来说，它提供了一种低门槛的观看途径，尤其适合不愿订阅付费体育频道的观众。
+    </p>
+    <p>
+      如果你经常需要出差或使用移动数据，建议在 Wi‑Fi 环境下缓存赛程页面，或提前收藏常用频道页。这样即使后续网络不太稳定，也能更快定位到想看的比赛。
+    </p>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <dl>
+        <dt>Q: 页面出现白屏或无法连接怎么办？</dt>
+        <dd>先确认网络正常，再尝试更换 DNS 或使用其他设备访问同一网址。有时运营商临时屏蔽也会导致打不开，可等待数小时后再试。</dd>
+
+        <dt>Q: 是否有手机专用版本？</dt>
+        <dd><a href="https://en-jrs.com">JRS直播</a> 的页面本身适配移动端浏览器，无需额外安装应用。在手机浏览器中直接打开即可，横屏模式观看体验更佳。</dd>
+
+        <dt>Q: 为什么部分赛事图标不显示？</dt>
+        <dd>这通常与本地缓存或资源 CDN 有关，清除浏览器缓存或强制刷新（Ctrl+F5）一般能解决。若仍然缺失，不影响直播功能。</dd>
+      </dl>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="visit-reminder">
+      <p>🔗 直接访问</p>
+      <p style="font-size:1.3rem; margin-top:0.2rem;">
+        <a href="https://en-jrs.com">JRS直播</a>
+      </p>
+      <p style="font-size:0.95rem; margin-top:0.6rem; color:#4f453a;">
+        或从书签中打开 · 核对域名确保安全
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    <span>一份静态页面 · 仅作介绍与提醒</span>
+    <span>·</span>
+    <span>内容基于通用使用经验</span>
+  </div>
+
+</div>
+</body>
+</html>
